@@ -1,1 +1,4 @@
-print(help(addition))
+
+# print(next(nameiterator))
+# print(next(nameiterator))
+# print(next(nameiterator))
