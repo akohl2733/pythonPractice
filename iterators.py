@@ -31,8 +31,8 @@ class SkipRange:
         return val
     
 
-for e in SkipRange(10, 2, -2):
-    print(e)
+# for e in SkipRange(10, 2, -2):
+#     print(e)
 
 
 
@@ -68,5 +68,55 @@ class EveryThird:
         else:
             return self.duck
         
-for i in EveryThird(20):
+# for i in EveryThird(20):
+#     print(i)
+
+class EvenSquares:
+
+    def __init__(self, n):
+        self.n = n
+        self.curr = 0
+        self.lst = [x for x in range(n+1) if x % 2 == 0]
+    
+    def __getitem__(self, index):
+        return self.lst[index] ** 2
+
+    def __iter__(self):
+        self.curr = 0
+        return self
+
+    def __next__(self):
+        if self.curr >= len(self.lst):
+            raise StopIteration
+        val = self.lst[self.curr]
+        self.curr += 1
+        return val ** 2
+
+# for i in EvenSquares(20):
+#     print(i)        
+
+class CycleWords:
+
+    def __init__(self, words = list[str]):
+        self.words = words
+        self.index = 0
+
+    def __iter__(self):
+        self.index = 0
+        return self
+
+    def __next__(self):
+        if self.index >= len(self.words):
+            raise StopIteration
+        word = self.words[self.index]
+        if word.lower() == "stop":
+            raise StopIteration
+        self.index += 1
+        return word
+
+w = CycleWords(["Andrew", "likes", "STOP", "pizza"])
+for i in w:
     print(i)
+
+for j in w:
+    print(j)
