@@ -78,3 +78,67 @@ while True:
 print("\nFinal Expense List:\n")
 for expense in expenses:
     print(f"{expense['Description']}: ${expense['Amount']:.2f}")
+
+
+## --------------------------------------------------------
+# quiz
+# Question 1
+
+
+def product(a, b):
+    if 0 in {a,b}:
+        print("You are multiplying by zero.")
+    try:
+        return a*b
+    except TypeError as e:
+        print("Please only enter numeric values.")
+    
+
+# --------------------------------------
+# Question 2
+
+class CalorieAmountError(Exception):
+    pass
+
+def insert_calories(cal):
+    if cal > 10000 or cal < 500:
+        raise CalorieAmountError("Please enter a caloric amount over 500 but under 10,000.")
+    else:
+        return cal
+    
+# ---------------------------------
+# Question 3
+
+daily_goals = []
+with open("goals.txt", "r") as f:
+    for line in f:
+        daily_goals.append(line.strip())
+
+
+
+# -----------------------------------------
+# Question 4
+
+import csv
+
+expenses = []
+
+while True:
+    desc = input("What did you spend money on?\n")
+    try:
+        amt = float(input("How much did you spend?\n"))
+        expenses.append({"Description": desc, "Amount": amt})
+    except TypeError as e:
+        print("Please enter a valid amount.")
+    finally:
+        print("Expense Addition Attempted.")
+    
+    more = input("Do you want to add another expense? (y/n)\n").lower()
+    if more != "y":
+        break
+
+
+with open("expenses.csv", 'a', newline="") as csvfile:
+    w = csv.writer(csvfile)
+    for expense in expenses:
+        w.writerow([expense["Description"], expense["Amount"]])
