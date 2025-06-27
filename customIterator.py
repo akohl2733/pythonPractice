@@ -21,5 +21,34 @@ class MyRange:
         self.curr += self.step
         return value       
     
-for num in MyRange(1, 5, 0):
-    print(num)
+total = sum(num for num in MyRange(10, 31) if num % 2 == 0)
+
+# print(total)
+
+# -------------------------------------------
+# Generator
+
+def fibonacci(n):
+    x, y = 0, 1
+    for _ in range(n):
+        yield x
+        x, y = y, x+y
+
+# for n in fibonacci(7):
+#     print(n)
+
+# ----------------------
+
+def evensToNumber(num):
+    for i in range(num + 1):
+        if i%2 == 0: yield i
+
+
+nums = list(evensToNumber(56))
+print(nums)
+
+# -----------------------------
+
+def square_up_to(num):
+    for i in range(num + 1):
+        yield i * i
