@@ -1,0 +1,4 @@
+Eggs,14.99
+Chicken,12.58
+Pizza,15.99
+fried chicken,10.99
