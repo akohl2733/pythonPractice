@@ -1,6 +1,6 @@
-from budget.expenses import add_expense
-from budget.income import add_income
-from budget.summary import summary
+from budget import reduce_expense
+from budget import add_income
+from budget import summary
 import re
 
 balance = 0
@@ -14,7 +14,7 @@ while True:
 
         str_expense = re.sub(r'[.,$]', '', input("How many expenses did you pay?").strip())
         expenses = float(str_expense)
-        balance = add_expense(balance, expenses)
+        balance = reduce_expense(balance, expenses)
         
     except ValueError:
         print("Please only use numbers")

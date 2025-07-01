@@ -1,2 +1,2 @@
-def add_expense(balance, amount):
+def reduce_expense(balance, amount):
     return balance - amount
