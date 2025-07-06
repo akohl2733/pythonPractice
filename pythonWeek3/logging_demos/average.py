@@ -1,8 +1,9 @@
 import logging, pdb
+from typing import List, Optional
 
 logging.basicConfig(level=logging.INFO)
 
-def compute_average(numbers):
+def compute_average(numbers: List[float]) -> Optional[float]:
     logging.info(f"Received numbers: {numbers}")
 
     if not numbers:
@@ -13,12 +14,12 @@ def compute_average(numbers):
         logging.error("Values are not all numerical.")
         return None
     
-    total = sum(numbers)
+    total: float = sum(numbers)
     logging.info(f"Total is {total}")
 
 
     try:
-        avg = total / len(numbers)
+        avg: float = total / len(numbers)
         logging.info(f"Average is {avg}")
         # pdb.set_trace()
         return avg
