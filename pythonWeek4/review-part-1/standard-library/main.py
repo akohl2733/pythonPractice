@@ -42,16 +42,34 @@ perms2 = list(permutations(letters2))
 ### --------------------------------------
 
 import requests
+import sys 
 
-try:
-    response = requests.get('https://www.google.com')
-    print(f"Google status: {response.status_code}")
-except requests.exceptions.RequestException as e:
-    print(f"Error connecting to Google: {e}")
+def fetch_posts(post_id):
+    url = f"https://jsonplaceholder.typicode.com/posts/{post_id}"
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+        print(data)
 
-try:
-    # This is the test where you added verify=False
-    response = requests.get('https://pokeapi.co/api/v2/pokemon/pikachu', verify=False)
-    print(f"PokeAPI status: {response.status_code}")
-except requests.exceptions.RequestException as e:
-    print(f"Error connecting to PokeAPI: {e}")
+        print(f"\n📰 Post ID: {data['id']}")
+        print(f"Title: {data['title']}")
+        print(f"Body: {data['body']}")
+    
+    except requests.exceptions.HTTPError:
+        print(f"Error: Post ID {post_id} not found.")
+
+    except Exception as e:
+        print(f"Unexpected Error: {e}")
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <post_id>")
+        return
+
+    post_id = sys.argv[1]
+    fetch_posts(post_id)
+
+if __name__ == "__main__":
+    main()
