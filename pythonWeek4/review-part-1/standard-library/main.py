@@ -40,3 +40,18 @@ perms2 = list(permutations(letters2))
 # print("Length of second:", len(perms2))
 
 ### --------------------------------------
+
+import requests
+
+try:
+    response = requests.get('https://www.google.com')
+    print(f"Google status: {response.status_code}")
+except requests.exceptions.RequestException as e:
+    print(f"Error connecting to Google: {e}")
+
+try:
+    # This is the test where you added verify=False
+    response = requests.get('https://pokeapi.co/api/v2/pokemon/pikachu', verify=False)
+    print(f"PokeAPI status: {response.status_code}")
+except requests.exceptions.RequestException as e:
+    print(f"Error connecting to PokeAPI: {e}")
