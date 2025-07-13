@@ -1,0 +1,14 @@
+2025-07-13 17:24:38,936 - INFO - Task Manager started.
+2025-07-13 17:24:38,964 - INFO - Added task: Learn Javascript
+2025-07-13 17:24:44,918 - INFO - Task Manager started.
+2025-07-13 17:24:44,929 - INFO - Listed tasks.
+2025-07-13 17:27:15,418 - INFO - Listed tasks.
+2025-07-13 17:27:17,199 - INFO - Added task: Learn Javascript
+2025-07-13 17:27:57,829 - INFO - Added task: Use argparse
+2025-07-13 17:28:00,270 - INFO - Added task: Use argparse
+2025-07-13 17:28:03,001 - INFO - Added task: Learn Javascript
+2025-07-13 17:28:06,832 - INFO - Listed tasks.
+2025-07-13 17:32:34,582 - INFO - Listed 6 tasks.
+2025-07-13 17:33:42,547 - INFO - Listed 6 tasks.
+2025-07-13 17:33:44,860 - INFO - Deleted task ID: 5
+2025-07-13 17:33:47,073 - INFO - Listed 5 tasks.

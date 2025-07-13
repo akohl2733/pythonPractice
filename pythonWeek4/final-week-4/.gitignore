@@ -1,0 +1,4 @@
+/venv
+/tasks.db
+/taskmanager.egg-info
+/taskmanager/__pycache__
