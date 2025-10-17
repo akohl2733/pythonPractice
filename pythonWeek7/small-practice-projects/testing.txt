@@ -1,0 +1,4 @@
+In this program, I am going to try and count the amount of times a word appears. I am going to use a hash map or dictionary.
+The real key here is using the feature in python that allows you to read files. I am using a txt file here.
+I plan to use the with open() syntax to start and go from there.
+I am going to stop here and start checking how this works.
